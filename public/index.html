@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌤️ Weather API Demo</h1>
+            <p>Get current weather and forecast data for any location</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Enter city name (e.g., London, New York)" />
+                <button id="searchBtn">Get Weather</button>
+            </div>
+            
+            <div class="location-btn-container">
+                <button id="locationBtn">📍 Use My Location</button>
+            </div>
+
+            <div class="toggle-container">
+                <label class="toggle-label">
+                    <input type="checkbox" id="unitToggle">
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">°F</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <div class="error" id="error" style="display: none;">
+            <p id="errorMessage"></p>
+        </div>
+
+        <div class="weather-container" id="weatherContainer" style="display: none;">
+            <!-- Current Weather -->
+            <div class="current-weather">
+                <div class="weather-header">
+                    <h2 id="locationName">Location</h2>
+                    <p id="currentTime"></p>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="temperature-section">
+                        <span id="currentTemp">--°</span>
+                        <div class="weather-icon">
+                            <img id="weatherIcon" src="" alt="Weather icon" />
+                        </div>
+                    </div>
+                    
+                    <div class="weather-details">
+                        <p id="weatherDescription">--</p>
+                        <p>Feels like <span id="feelsLike">--°</span></p>
+                    </div>
+                </div>
+
+                <div class="weather-stats">
+                    <div class="stat">
+                        <span class="stat-label">Humidity</span>
+                        <span class="stat-value" id="humidity">--%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Wind Speed</span>
+                        <span class="stat-value" id="windSpeed">-- m/s</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Pressure</span>
+                        <span class="stat-value" id="pressure">-- hPa</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Visibility</span>
+                        <span class="stat-value" id="visibility">-- km</span>
+                    </div>
+                </div>
+
+                <div class="sun-times">
+                    <div class="sun-time">
+                        <span>🌅 Sunrise: <span id="sunrise">--:--</span></span>
+                    </div>
+                    <div class="sun-time">
+                        <span>🌇 Sunset: <span id="sunset">--:--</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast -->
+            <div class="forecast-section">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer">
+                    <!-- Forecast items will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="api-docs">
+            <h3>API Endpoints</h3>
+            <div class="endpoint">
+                <code>GET /api/weather/current?city=London</code>
+                <p>Get current weather by city name</p>
+            </div>
+            <div class="endpoint">
+                <code>GET /api/weather/current?lat=51.5074&lon=-0.1278</code>
+                <p>Get current weather by coordinates</p>
+            </div>
+            <div class="endpoint">
+                <code>GET /api/weather/forecast?city=London</code>
+                <p>Get 5-day forecast by city name</p>
+            </div>
+            <div class="endpoint">
+                <code>POST /api/weather/multiple</code>
+                <p>Get weather for multiple cities (JSON body with cities array)</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Weather API Demo. Built with ❤️ and OpenWeatherMap API.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
