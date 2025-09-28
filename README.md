@@ -25,8 +25,9 @@ A full-featured weather API with demo interface.
    ```
 
 3. Get your free API key from [OpenWeatherMap](https://openweathermap.org/api)
+4. and paste the secret key in .env file 
 
-4. Start the server:
+5. Start the server:
    ```bash
    npm start
    ```
@@ -36,7 +37,7 @@ A full-featured weather API with demo interface.
    npm run dev
    ```
 
-5. Open http://localhost:3000 to see the demo
+6. Open http://localhost:3000 to see the demo
 
 ## API Endpoints
 
